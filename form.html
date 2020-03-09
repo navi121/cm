@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    <style>
+      .nave {
+      margin-left: auto;
+          margin-right: auto;
+          width:50%;
+      font-weight: bold ;
+      text-align: left;
+      font-family:sans-serif,bold, Arial, Helvetica;
+      font-size:14px;
+      }
+      .buttons{
+      display:flex;
+      margin-right: auto;
+          margin-left: auto;
+      width:50%;
+      }
+      div input{
+          width:90%;
+          display: block;
+          margin-right: auto;
+      margin-left:auto;
+      }
+      form {
+      margin: 0 auto;
+      align-items: center;
+          margin-left:200px;
+      width: 600px;
+      }
+      form input{
+      padding: 10px;
+          font-family: cursive,bold;
+          color:fuchsia;
+      }
+      form select{
+      background-color: #ffffff;
+      padding:5px;
+      }
+      form textarea{
+      padding:10px;
+      margin-bottom:5px;
+      }
+      form label{
+          width:100%;
+          display: block;
+          margin-right: auto;
+      margin-left:auto;
+      margin-bottom:5px;
+          color:cadetblue;
+      }
+        p{
+            font-family: serif;
+            color: red;
+            margin-left:auto;
+            margin-right: auto;
+            width:90%;
+        }
+        h1{
+            color:blue;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center"> Registration Form </h2>
+    <form name="RegForm" onsubmit="return nave()" method="post" class="nave">
+      <div>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="Name" size="60" name="firstname" placeholder="enter the first name">
+          <p id="fn"></p>
+      </div>
+      <br>
+        <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" size="60" name="lastname" placeholder="enter the  last  name">
+            <p id="ln"></p>
+      </div>
+      <br>
+      <div>
+        <label for="user" >User Id:</label>
+        <input type="text" id="user" size="60" name="user" placeholder="enter the user id"> 
+          <p id="us"></p>
+      </div>
+      <br>
+      <div>
+        <label for="E-mail"l>E-mail Address:</label>
+        <input type="text" id="E-mail" size="60" name="Email" placeholder="enter the email">
+          <p id="em"></p>
+      </div>
+      <br>
+      <div>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" size="60" name="Password" placeholder="enter the password">
+          <p id="ps"></p>
+      </div>
+      <br>
+        <div>
+        <label for="confirmpassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" size="60" name="confirmpassword" placeholder="re-enter the password">
+            <p id="cp"></p>
+      </div>
+      <br>
+     <div class="buttons">
+            <input type="submit" value="Send" name="Submit" onclick="nave()">
+      </div>
+    </form>
+    <script> 
+      function nave()                                    
+      { 
+          var firstname = document.forms["RegForm"]["firstname"];   
+          var lastname = document.forms["RegForm"]["lastname"];               
+          var email = document.forms["RegForm"]["Email"];    
+          var password = document.forms["RegForm"]["Password"]; 
+          var confirmpassword = document.forms["RegForm"]["confirmPassword"];  
+          if (firstname.value == "")                                  
+          { 
+              document.getElementById('fn').innerHTML="*enter first name";
+              firstname.focus(); 
+              return false;
+          }
+          else if (firstname.value != "")                                  
+          {  
+              document.getElementById("fn").style.display = "none";
+          }
+          if (lastname.value == "")                                  
+          { 
+              document.getElementById('ln').innerHTML="*enter last name";
+              lastname.focus(); 
+              return false; 
+          } 
+           else if (lastname.value != "")                                  
+          {  
+              document.getElementById("ln").style.display = "none";
+          } 
+        if (user.value == "")                                  
+          { 
+              document.getElementById('us').innerHTML="*enter user id";
+              user.focus(); 
+              return false; 
+          }   
+          else if (user.value != "")                                  
+          {  
+              document.getElementById("us").style.display = "none";
+          }
+          if (email.value == "")                                   
+          { 
+              document.getElementById('em').innerHTML="*enter email";
+              email.focus(); 
+              return false; 
+          }   
+          if (email.value.indexOf("@", 0) < 0)                 
+          { 
+              document.getElementById('em').innerHTML="*Invalid EmailId";
+              email.focus(); 
+              return false; 
+          }    
+          if((email.value.charAt(email.value.length-4)!='.' && email.value.charAt(email.value.length-3)!='.')){
+                document.getElementById('em').innerHTML="*Invalid EmailId";
+                email.focus();
+              return false;
+            }  
+           else if (email.value != "")                                  
+          {  
+              document.getElementById("em").style.display = "none";
+          }
+          if (password.value == "")                        
+          {
+              document.getElementById('ps').innerHTML="*enter password";
+              password.focus(); 
+              return false; 
+          }    
+          else if (password.value != "")                                  
+          {  
+              document.getElementById("ps").style.display = "none";
+          }
+          if (confirmpassword.value == "")                        
+          { 
+              document.getElementById('cp').innerHTML="*re-enter password";
+              confirmpassword.focus(); 
+              return false; 
+          }
+          else if (password.value != confirmpassword.value)                                  
+          {  
+              document.getElementById('cp').innerHTML="*incorrect password";
+              confirmpassword.focus(); 
+              return false;
+          }
+          else                     
+          { 
+              alert("Successfully Created");  
+              return true; 
+          }
+         
+      }
+    </script> 
+      <p id="na">  </p>
+  </body>
+</html>
